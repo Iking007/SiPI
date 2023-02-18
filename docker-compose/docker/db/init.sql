@@ -52,9 +52,9 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.book (
     id bigint NOT NULL,
-    download character varying(255),
-    img character varying(255),
-    str character varying(255),
+    download character varying(1000),
+    img character varying(1000),
+    str character varying(1000),
     title character varying(255),
     writer character varying(255)
 );
