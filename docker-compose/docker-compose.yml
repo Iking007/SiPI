@@ -1,19 +1,20 @@
-version: '1'
+version: "3.9"
 services:
-  java-server:
+  java:
     build: ./docker/java
     container_name: java
-    restart: always
     ports:
       - "8080:8080"
+    depends_on:
+      - database
 
-  db:
-    build: /docker/db
-    container_name: libDB
-    restart: always
+  database:
+    image: postgres:alpine3.17
+    container_name: database
     environment:
-      POSTGRES_DB: "litres"
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "rootuser"
+    volumes:
+      - ./docker/db:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
