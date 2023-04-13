@@ -31,10 +31,10 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRoles(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRoles(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {
@@ -48,10 +48,10 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRoles(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRoles(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {
@@ -63,7 +63,7 @@ public class IndexController{
     }
     @GetMapping("/books/query")
     public String books(@AuthenticationPrincipal User user,@RequestParam String filter, Model model){
-        Iterable<Book> books = booksRepository.search(filter, filter, filter, filter);
+        Iterable<Book> books = booksRepository.findByTitle(filter);
 
         if (books.toString().isEmpty()) {
             return "redirect:/books";
@@ -71,10 +71,10 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRoles(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRoles(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {
@@ -95,10 +95,10 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRoles(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRoles(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {
@@ -113,16 +113,16 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRoles(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRoles(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {
             model.addAttribute("pr", 2);
         }
-        model.addAttribute("username", user.getUsername());
+        model.addAttribute("username", user.getEmail());
         return "prof";
     }
     }

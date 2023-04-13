@@ -10,20 +10,19 @@
     <header th:insert="blocks/header :: header"></header>
 
     <div>
-        <a href="/menu">
-            <button class="btn btn-success" style="margin-left: 15px; border-radius: 10px">Меню суперпользователя</button>
-        </a><br>
         <table style="margin-left: 15px; margin-right: 20px">
             <tr>
                 <th>id</th>
-                <th>username</th>
+                <th>email</th>
+                <th>name</th>
                 <th>role</th>
                 <th>del</th>
             </tr>
             <tr th:each="el : ${users}" style="margin-left: 1vw; width: 310px">
 
                 <td th:text="${el.id}"></td>
-                <td th:text="${el.username}"></td>
+                <td th:text="${el.email}"></td>
+                <td th:text="${el.name}"></td>
                 <td style="display: flex">
                     <form th:action="'/menu/users/'+${el.id}+'/update/0'" method="post">
                         <button style="border-radius: 10px;
@@ -31,7 +30,7 @@
                         border: 0px; height: 30px">
                             USER
                         </button>
-                        <div th:if="${el.roles} == 'USER'">
+                        <div th:if="${el.role} == 'USER'">
                             ←
                         </div>
                     </form>
@@ -39,7 +38,7 @@
                         <button style="border-radius: 10px;
                         border: 0px; height: 30px">
                             MODER
-                            <p th:if="${el.roles} == 'MODER'">
+                            <p th:if="${el.role} == 'MODER'">
                                 ←
                             </p>
                         </button>
@@ -53,7 +52,7 @@
 
                     </form>
 
-                    <p th:text="${el.roles}">
+                    <p th:text="${el.role}">
                     </p>
                 </td>
                 <td><a th:href="'/menu/users/' + ${el.id} + '/del'" style="cursor: pointer">❌</a></td>

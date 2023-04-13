@@ -10,14 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-
 
 /**
  * @author Pavel
  */
 @Controller
-public class SecretController {
+public class MenuController {
 
     @Autowired
     BooksRepository booksRepository;
@@ -56,7 +54,6 @@ public class SecretController {
         }
         model.addAttribute("namePage", booksRepository.findById(id).get(0).getTitle());
         Iterable<Book> book = booksRepository.findById(id);
-        ArrayList<Book> res = new ArrayList<>();
         model.addAttribute("book", book);
 
         return "update";
@@ -72,7 +69,8 @@ public class SecretController {
             book.setTitle(title);
             book.setImg(img);
             book.setDownload(download);
-            book.setWriter(writer);
+            // Раскоментить, когда появится таблица писателей + добавить жанр
+            //book.setWriter(writer);
             book.setStr(str);
             booksRepository.save(book);
 
@@ -90,7 +88,7 @@ public class SecretController {
                           @RequestParam String download, @RequestParam String writer, @RequestParam String str,
                           Model model){
         model.addAttribute("pr", 2);
-        Book book = new Book(title, str, writer);
+        Book book = new Book(title, str);
         book.setDownload(download);
         book.setImg(img);
         System.out.println(book);

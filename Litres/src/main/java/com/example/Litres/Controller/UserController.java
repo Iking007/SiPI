@@ -4,7 +4,6 @@ import com.example.Litres.Model.Role;
 import com.example.Litres.Model.User;
 import com.example.Litres.Repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +34,9 @@ public class UserController {
         model.addAttribute("pr", 2);
         User user = usersRepository.findById(id).orElseThrow();
         switch (role) {
-            case 0 -> {user.getRoles().clear(); user.getRoles().add(Role.USER);}
-            case 1 -> {user.getRoles().clear(); user.getRoles().add(Role.MODER);}
-            case 2 -> {user.getRoles().clear(); user.getRoles().add(Role.ADMIN);}
+            case 0 -> {user.getRole(); user.setRole(Collections.singleton(Role.USER));}
+            case 1 -> {user.getRole(); user.setRole(Collections.singleton(Role.MODER));}
+            case 2 -> {user.getRole(); user.setRole(Collections.singleton(Role.ADMIN));}
             default -> {
             }
         }

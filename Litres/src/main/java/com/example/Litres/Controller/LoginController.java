@@ -27,7 +27,7 @@ public class LoginController {
     @PostMapping("/login")
     public String bookAdd(@RequestParam String username, @RequestParam String password, Model model) {
         User user = new User(username, password);
-        User userFromBD = usersRepository.findByUsername(user.getUsername());
+        User userFromBD = usersRepository.findByEmail(user.getEmail());
         String password1 = userFromBD.getPassword();
         if (userFromBD == null) {
             model.addAttribute("namePage", "Вход");
