@@ -10,6 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * \brief Контроллер авторизации.
+ * \details Класс, отвечающий за авторизацию уже зарегистрированных пользователей.
+ * \author Ivan
+ * \date 16 March 2023
+ * \ingroup Controllers Контроллер авторизации.
+ */
 @Controller
 public class LoginController {
     @Autowired

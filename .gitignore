@@ -1,3 +1,4 @@
 /Litres/target/
 /.idea/
-/.vscode
+/.vscode/
+/Litres/src/main/resources/META-INF/

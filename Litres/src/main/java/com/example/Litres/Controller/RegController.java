@@ -13,7 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+/**
+ * \brief Контроллер регистрации
+ * \details Класс, отвечающий за роутинг методов регистрации
+ * \author Ivan
+ * \date 16 March 2023
+ * \ingroup Controllers Контроллер регистрации.
+ */
 @Controller
 public class RegController {
     @Autowired

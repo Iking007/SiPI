@@ -6,7 +6,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
+/**
+ * \brief Класс получения аутентификационной информации.
+ * \details Класс, необходимый для поиска и проверки пользователя по его email в базе данных, реализующий интерфейс UserDetailsService, основанный на DAO.
+ */
 @Service
 public class UserService implements UserDetailsService {
     @Autowired

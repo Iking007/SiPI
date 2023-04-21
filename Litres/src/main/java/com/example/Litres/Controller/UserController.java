@@ -10,6 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+
+/**
+ * \brief Контроллер, отвечающий за работу с пользовательскими аккаунтами.
+ * \author Ivan
+ * \date 15 March 2023
+ * \ingroup Controllers Контроллер пользователя.
+ */
 @Controller
 @RequestMapping("menu/users")
 public class UserController {

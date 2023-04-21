@@ -1,3 +1,6 @@
+/**
+ * \defgroup Controllers Контроллеры приложения
+ */
 package com.example.Litres.Controller;
 
 import com.example.Litres.Model.Book;
@@ -17,7 +20,11 @@ import java.util.Objects;
 
 
 /**
- * @author Pavel
+ * \brief Главный контроллер роутинга
+ * \details Класс контроллера, задающий основные маршруты поведения приложения и доставляющий в шаблонизатор данный из репозитория книг.
+ * \authors Ivan, Pavel
+ * \date 15 March 2023
+ * \ingroup Controllers Главный контроллер
  */
 @Controller
 public class IndexController{
@@ -25,6 +32,11 @@ public class IndexController{
     BooksRepository booksRepository;
 
 
+    /**
+     * \param[in] user Сущность пользователя
+     * \param[in] model Объект изменяемой модели
+     * \return[out] index Главная страница
+     */
     @GetMapping("/")
     public String index(@AuthenticationPrincipal User user,Model model){
         model.addAttribute("namePage", "Главная");

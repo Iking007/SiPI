@@ -7,6 +7,13 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
 
+/**
+ * \brief Сущность Пользователь - содержит информацию о пользователе информационной системы.
+ * \details Класс User создан для реализации сущности Пользователя информационной системы, зарегистрированного на сайте.
+ * \author Stanislav
+ * \date 10 March 2023
+ */
+
 @Entity
 @Table(name = "user_data")
 public class User implements UserDetails {

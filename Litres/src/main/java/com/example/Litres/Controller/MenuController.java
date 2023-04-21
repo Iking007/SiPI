@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author Pavel
+ * \brief Роутинг страниц.
+ * \details Контроллер, отвечающий за роутинг страниц.
+ * \date 20 March 2023
+ * \ingroup Controllers Контроллер навигации в меню.
  */
 @Controller
 public class MenuController {
@@ -69,8 +73,9 @@ public class MenuController {
             book.setTitle(title);
             book.setImg(img);
             book.setDownload(download);
-            // Раскоментить, когда появится таблица писателей + добавить жанр
-            //book.setWriter(writer);
+            /**
+             * \todo когда появится таблица писателей + добавить жанр book.setWriter(writer);
+             */
             book.setStr(str);
             booksRepository.save(book);
 

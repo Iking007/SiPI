@@ -1,16 +1,20 @@
 package com.example.Litres.Repository;
 
-/**
- * @author Pavel
- */
-
 import com.example.Litres.Model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-
 import java.util.List;
+
+/**
+ * \brief Репозиторий книг.
+ * \details Интерфейс Spring Data, называемый книжным репозиторием, представляющий собой DAO. Содержит методы для получения всех книг, конкретной книги по идентификатору, и по названию.
+ * Необходим для создания страницы книги и реализации поиска книг. 
+ * \author Ivan
+ * \date 23 March 2023
+ * \warning SQL-запрос для демонстрационных целей.
+ */
+
 @Repository
 public interface BooksRepository extends JpaRepository<Book, Long> {
 
