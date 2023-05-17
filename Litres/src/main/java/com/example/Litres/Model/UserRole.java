@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
  * \date 10 March 2023
  */
 
-public enum Role implements GrantedAuthority {
+public enum UserRole implements GrantedAuthority {
     USER,
     MODER,
     ADMIN;

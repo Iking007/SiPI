@@ -4,8 +4,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Set;
+import java.util.Objects;
 
 /**
  * \brief Сущность Пользователь - содержит информацию о пользователе информационной системы.
@@ -20,72 +23,35 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-    private boolean active;
-    
+    private boolean account_activity;
     private String password;
-    private String name;
+    private String username;
     private String email;
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    @Enumerated(EnumType.STRING)
-    private Set<Role> role;
+    private String surname;
+    private String name;
+    private String middle_name;
+    private Calendar birth_date;
 
     public User() {
     }
 
-    public User(String email, String password) {
-        this.active = true;
+    public User(String password, String username, String email, String surname, String name, String middle_name, Calendar birth_date) {
+        this.account_activity = true;
         this.password = password;
-        this.email = email;        
-    }
-    
-    public void newRole(Set<Role> role){
-        this.role = null;
-        this.role = role;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setEmail(String email) {
+        this.username = username;
         this.email = email;
-    }
-    public String getEmail() {
-        return email;
+        this.surname = surname;
+        this.name = name;
+        this.middle_name = name;
+        this.birth_date = birth_date;      
     }
 
-    
-
-    public void setPassword(String password) {
+    public User(String password, String username){
         this.password = password;
+        this.username = username;
     }
-    public String getPassword() {
-        return password;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-    public Set<Role> getRole() {
-        return role;
-    }
-
-    public void setRole(Set<Role> role) {
-        this.role = role;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    
+    
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -103,17 +69,103 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return isActive();
-    }
-
-
-    @Override
-    public String getUsername() {
-        return email;
+        throw new UnsupportedOperationException("Unimplemented method 'isEnabled'");
     }
     
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRole();
+    }
+
+    @ElementCollection(targetClass = UserRole.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<UserRole> role;
+
+    public Set<UserRole> getRole() {
+        return role;
+    }
+
+    public void setRole(Set<UserRole> role) {
+        this.role = role;
+    }
+
+    public void newRole(Set<UserRole> role){
+        this.role = null;
+        this.role = role;
+    }
+
+    /** Getters and Setters */
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public boolean getAccount_activity() {
+        return this.account_activity;
+    }
+
+    public void setAccount_activity(boolean account_activity) {
+        this.account_activity = account_activity;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public String getSurname() {
+        return this.surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMiddle_name() {
+        return this.middle_name;
+    }
+
+    public void setMiddle_name(String middle_name) {
+        this.middle_name = middle_name;
+    }
+
+    public Calendar getBirth_date() {
+        return this.birth_date;
+    }
+
+    public void setBirth_date(Calendar birth_date) {
+        this.birth_date = birth_date;
     }
 }

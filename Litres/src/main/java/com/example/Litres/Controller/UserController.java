@@ -1,6 +1,6 @@
 package com.example.Litres.Controller;
 
-import com.example.Litres.Model.Role;
+import com.example.Litres.Model.UserRole;
 import com.example.Litres.Model.User;
 import com.example.Litres.Repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +41,9 @@ public class UserController {
         model.addAttribute("pr", 2);
         User user = usersRepository.findById(id).orElseThrow();
         switch (role) {
-            case 0 -> {user.getRole(); user.setRole(Collections.singleton(Role.USER));}
-            case 1 -> {user.getRole(); user.setRole(Collections.singleton(Role.MODER));}
-            case 2 -> {user.getRole(); user.setRole(Collections.singleton(Role.ADMIN));}
+            case 0 -> {user.getRole(); user.setRole(Collections.singleton(UserRole.USER));}
+            case 1 -> {user.getRole(); user.setRole(Collections.singleton(UserRole.MODER));}
+            case 2 -> {user.getRole(); user.setRole(Collections.singleton(UserRole.ADMIN));}
             default -> {
             }
         }

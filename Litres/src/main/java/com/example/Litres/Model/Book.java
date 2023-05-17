@@ -16,33 +16,106 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;///< Идентификатор книги 
+    private String download_link;///< Путь к файлу/ссылка для скачивания книги с веб-сайта
+    private String image;///< Путь к файлу обложки книги
     
-    private String title;///< Название книги
-    private String img;///< Путь к файлу обложки книги
-    private String download;///< Путь к файлу/ссылка для скачивания книги с веб-сайта
     @Column(columnDefinition = "TEXT")
-    private String str;///< Текстовое описание книги
+    private String description;///< Текстовое описание книги
+    private String title;///< Название книги
+    
     @ManyToOne
     @JoinColumn(name = "id_author")
-    private Author author; ///< Идентификатор автора книги
+    private BookAuthor id_author; ///< Идентификатор автора книги
+    
     @ManyToOne
     @JoinColumn(name = "id_genre")
-    private Genre genre; ///< Идентификатор жанра книги
+    private Genre id_genre; ///< Идентификатор жанра книги
+
+    /** 
+     * TODO доделать связь с таблицей оценок книги
+     */
+    private float total_rating;///< Рейтинг книги
 
     public Book() {
     }
 
-    public Book(String title, String str, Author writer, Genre genre) {
+    public Book(String title, String description, BookAuthor id_author, Genre id_genre) {
         this.title = title;
-        this.str = str;
-        /**
-         * \todo Дописать, когда будет добавлена таблица писателей: this.id_author = (long) 0; this.id_genre = (long) 0;
-         */
+        this.description = description;
+        this.id_author = id_author; 
+        this.id_genre = id_genre;
     }
-    public Book(String title, String str) {
+    public Book(String title, String description) {
         this.title = title;
-        this.str = str;
+        this.description = description;
     }
+
+    /** Getters and setters */
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDownload_link() {
+        return this.download_link;
+    }
+
+    public void setDownload_link(String download_link) {
+        this.download_link = download_link;
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public BookAuthor getId_author() {
+        return this.id_author;
+    }
+
+    public void setId_author(BookAuthor id_author) {
+        this.id_author = id_author;
+    }
+
+    public Genre getId_genre() {
+        return this.id_genre;
+    }
+
+    public void setId_genre(Genre id_genre) {
+        this.id_genre = id_genre;
+    }
+
+    public float getTotal_rating() {
+        return this.total_rating;
+    }
+
+    public void setTotal_rating(float total_rating) {
+        this.total_rating = total_rating;
+    }
+
 }
 
 

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.Litres.Model.Author;
+import com.example.Litres.Model.BookAuthor;
 import com.example.Litres.Model.Book;
 import com.example.Litres.Model.Genre;
 
@@ -35,7 +35,7 @@ public interface BooksRepository extends JpaRepository<Book, Long> {
     @Query("""
         SELECT b FROM Book b WHERE b.author = :author
             """)
-    List<Book> searchByAuthor(@Param("author") Author author);
+    List<Book> searchByAuthor(@Param("author") BookAuthor author);
     // @Query("""
     //         select b from Book b
     //         where upper(b.title) like upper(concat(?1, '%')) or upper(b.writer) like upper(concat(?2, '%')) or upper(b.title) like upper(concat('%', ?3)) or upper(b.writer) like upper(concat('%', ?4))""")

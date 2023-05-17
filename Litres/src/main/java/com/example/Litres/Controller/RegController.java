@@ -1,9 +1,10 @@
 package com.example.Litres.Controller;
 
-import com.example.Litres.Model.Role;
+import com.example.Litres.Model.UserRole;
 import com.example.Litres.Model.User;
 import com.example.Litres.Repository.UsersRepository;
 
+import java.util.Calendar;
 import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +36,9 @@ public class RegController {
     }
 
     @PostMapping("/reg")
-    public String bookAdd(@RequestParam String username, @RequestParam String password,
+    public String bookAdd(@RequestParam String password, @RequestParam String username, @RequestParam String email, @RequestParam String surname, @RequestParam String name, @RequestParam String middle_name, @RequestParam Calendar birth_date,
                           @RequestParam String password2, Model model){
-        User user = new User(username,password);
+        User user = new User(password, username, email, surname, name, middle_name, birth_date);
         User userFromBD = usersRepository.findByEmail(user.getUsername());
         if(userFromBD != null) {
             model.addAttribute("error", "Ошибка, пользователь с такой почтой существует");
@@ -48,7 +49,7 @@ public class RegController {
             return "reg";
         }
 
-        user.setRole(Collections.singleton(Role.USER));
+        user.setRole(Collections.singleton(UserRole.USER));
         usersRepository.save(user);
 
         return "redirect:/login";

@@ -14,15 +14,43 @@ import javax.persistence.OneToMany;
  * \date 17 March 2023
  */
 
-public class Favorites {
+public class Favorite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;///< Идентификатор избранного
 
     @OneToMany
     @JoinColumn(name = "id_book")
-    private Book book;///< Идентификатор книги, которая добалена в избранное
+    private Book book;///< Идентификатор книги, которая добавлена в избранное
+    
     @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;///< Идентификатор пользователя
+
+    /** Getters and setters */
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Book getBook() {
+        return this.book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }

@@ -71,12 +71,12 @@ public class MenuController {
             model.addAttribute("pr", 2);
             Book book = booksRepository.findById(id).get(0);
             book.setTitle(title);
-            book.setImg(img);
-            book.setDownload(download);
+            book.setImage(img);
+            book.setDownload_link(download);
             /**
              * \todo когда появится таблица писателей + добавить жанр book.setWriter(writer);
              */
-            book.setStr(str);
+            book.setDescription(str);
             booksRepository.save(book);
 
 
@@ -94,8 +94,8 @@ public class MenuController {
                           Model model){
         model.addAttribute("pr", 2);
         Book book = new Book(title, str);
-        book.setDownload(download);
-        book.setImg(img);
+        book.setDownload_link(download);
+        book.setImage(img);
         System.out.println(book);
         booksRepository.save(book);
         return "redirect:/menu";

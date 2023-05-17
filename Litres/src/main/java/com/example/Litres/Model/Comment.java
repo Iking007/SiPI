@@ -22,9 +22,53 @@ public class Comment{
     @JoinColumn(name = "id_book")
     private Book book;///< Идентификатор книги, под которой оставлен комментарий
     private Date date;///< Дата, когда был оставлен комментарий
+    
     @Column(columnDefinition="TEXT")
     private String text;///< Текст комментария
+    
     @ManyToOne
-    @JoinColumn(name = "id_author")
-    private User author;///< Идентификатор автора комментария
+    @JoinColumn(name = "id_user")
+    private User user;///< Идентификатор автора комментария
+
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Book getBook() {
+        return this.book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Date getDate() {
+        return this.date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
 }

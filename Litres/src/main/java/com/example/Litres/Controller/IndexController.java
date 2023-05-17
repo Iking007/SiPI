@@ -4,7 +4,7 @@
 package com.example.Litres.Controller;
 
 import com.example.Litres.Model.Book;
-import com.example.Litres.Model.Role;
+import com.example.Litres.Model.UserRole;
 import com.example.Litres.Model.User;
 import com.example.Litres.Repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +43,10 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(UserRole.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(UserRole.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {
@@ -60,10 +60,10 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(UserRole.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(UserRole.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {
@@ -83,10 +83,10 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(UserRole.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(UserRole.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {
@@ -107,10 +107,10 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(UserRole.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(UserRole.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {
@@ -125,10 +125,10 @@ public class IndexController{
         if(user == null){
             model.addAttribute("pr", null);
         }
-        else if( Objects.equals(user.getRole(), Collections.singleton(Role.USER))){
+        else if( Objects.equals(user.getRole(), Collections.singleton(UserRole.USER))){
             model.addAttribute("pr", 0);
         }
-        else if(!Objects.equals(user.getRole(), Collections.singleton(Role.ADMIN))){
+        else if(!Objects.equals(user.getRole(), Collections.singleton(UserRole.ADMIN))){
             model.addAttribute("pr", 1);
         }
         else {

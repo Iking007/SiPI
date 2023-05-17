@@ -1,6 +1,6 @@
 package com.example.Litres.config;
 
-import com.example.Litres.Model.Role;
+import com.example.Litres.Model.UserRole;
 import com.example.Litres.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -35,8 +35,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/menu", "/menu/all", "menu/users/**", "/menu/del/**").hasRole(Role.ADMIN.name())
-                    .antMatchers("/menu/update/**").hasAnyRole(Role.ADMIN.name(), Role.MODER.name())
+                    .antMatchers("/menu", "/menu/all", "menu/users/**", "/menu/del/**").hasRole(UserRole.ADMIN.name())
+                    .antMatchers("/menu/update/**").hasAnyRole(UserRole.ADMIN.name(), UserRole.MODER.name())
                     .antMatchers("/", "/books", "/books/**", "/reg", "/del/**").permitAll()
                     .anyRequest().authenticated()
                 .and()

@@ -13,12 +13,11 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "book_ganre")
+@Table(name = "book_genre")
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String kind_of_literature;
-    private String name_genre;
+    private String name;
 }
