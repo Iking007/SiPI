@@ -18,7 +18,7 @@ public class Comment{
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;///< Идентификатор комментария
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "id_book")
     private Book book;///< Идентификатор книги, под которой оставлен комментарий
     private Date date;///< Дата, когда был оставлен комментарий
