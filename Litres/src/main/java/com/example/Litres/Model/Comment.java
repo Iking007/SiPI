@@ -18,7 +18,7 @@ public class Comment{
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;///< Идентификатор комментария
 
-    @OneToMany
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_book")
     private Book book;///< Идентификатор книги, под которой оставлен комментарий
     private Date date;///< Дата, когда был оставлен комментарий
@@ -31,44 +31,36 @@ public class Comment{
     private User user;///< Идентификатор автора комментария
 
 
-    public Long getId() {
-        return this.id;
-    }
+    // public Long getId() {
+    //     return this.id;
+    // }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    // public void setId(Long id) {
+    //     this.id = id;
+    // }
 
-    public Book getBook() {
-        return this.book;
-    }
+    // public Date getDate() {
+    //     return this.date;
+    // }
 
-    public void setBook(Book book) {
-        this.book = book;
-    }
+    // public void setDate(Date date) {
+    //     this.date = date;
+    // }
 
-    public Date getDate() {
-        return this.date;
-    }
+    // public String getText() {
+    //     return this.text;
+    // }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+    // public void setText(String text) {
+    //     this.text = text;
+    // }
 
-    public String getText() {
-        return this.text;
-    }
+    // public User getUser() {
+    //     return this.user;
+    // }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public User getUser() {
-        return this.user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    // public void setUser(User user) {
+    //     this.user = user;
+    // }
     
 }

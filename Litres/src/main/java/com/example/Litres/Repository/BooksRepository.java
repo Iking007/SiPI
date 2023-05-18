@@ -28,12 +28,12 @@ public interface BooksRepository extends JpaRepository<Book, Long> {
     List<Book> searchByTitle(@Param("title") String title);
 
     @Query("""
-        SELECT b FROM Book b WHERE b.genre = :genre
+        SELECT b FROM Book b WHERE b.id_genre = :genre
             """)
     List<Book> searchByGenre(@Param("genre") Genre genre);
     
     @Query("""
-        SELECT b FROM Book b WHERE b.author = :author
+        SELECT b FROM Book b WHERE b.id_author = :author
             """)
     List<Book> searchByAuthor(@Param("author") BookAuthor author);
     // @Query("""

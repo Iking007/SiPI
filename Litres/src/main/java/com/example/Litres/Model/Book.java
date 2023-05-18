@@ -1,7 +1,10 @@
 package com.example.Litres.Model;
 import lombok.Data;
 
+import java.util.List;
+
 import javax.persistence.*;
+
 
 /**
  * \brief Сущность Книга - содержит информацию о книге.
@@ -31,6 +34,9 @@ public class Book {
     @JoinColumn(name = "id_genre")
     private Genre id_genre; ///< Идентификатор жанра книги
 
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
+    private List<Comment> id_comments; ///< Идентификатор отзывов книги
     /** 
      * TODO доделать связь с таблицей оценок книги
      */
