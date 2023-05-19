@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Set;
-import java.util.Objects;
 
 /**
  * \brief Сущность Пользователь - содержит информацию о пользователе информационной системы.

@@ -26,6 +26,7 @@ public class BookAuthor {
     @Column(columnDefinition="text")
     private String short_bio;///< Краткая биография автора
 
+    public BookAuthor(){};
     /** Getters and setters */
 
     public Long getId() {

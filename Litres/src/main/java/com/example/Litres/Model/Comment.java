@@ -30,37 +30,38 @@ public class Comment{
     @JoinColumn(name = "id_user")
     private User user;///< Идентификатор автора комментария
 
+    public Comment(){}
 
-    // public Long getId() {
-    //     return this.id;
-    // }
+    public Long getId() {
+        return this.id;
+    }
 
-    // public void setId(Long id) {
-    //     this.id = id;
-    // }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    // public Date getDate() {
-    //     return this.date;
-    // }
+    public Date getDate() {
+        return this.date;
+    }
 
-    // public void setDate(Date date) {
-    //     this.date = date;
-    // }
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-    // public String getText() {
-    //     return this.text;
-    // }
+    public String getText() {
+        return this.text;
+    }
 
-    // public void setText(String text) {
-    //     this.text = text;
-    // }
+    public void setText(String text) {
+        this.text = text;
+    }
 
-    // public User getUser() {
-    //     return this.user;
-    // }
+    public User getUser() {
+        return this.user;
+    }
 
-    // public void setUser(User user) {
-    //     this.user = user;
-    // }
+    public void setUser(User user) {
+        this.user = user;
+    }
     
 }

@@ -27,6 +27,8 @@ public class Favorite {
     @JoinColumn(name = "id_user")
     private User user;///< Идентификатор пользователя
 
+    public Favorite(){};
+
     /** Getters and setters */
 
     public Long getId() {
