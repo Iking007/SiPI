@@ -54,25 +54,25 @@ public class IndexController{
         }
         return "index";
     }
-    @GetMapping("/books")
-    public String books(@AuthenticationPrincipal User user, Model model){
-        model.addAttribute("namePage", "Книги");
-        if(user == null){
-            model.addAttribute("pr", null);
-        }
-        else if( Objects.equals(user.getRole(), Collections.singleton(UserRole.USER))){
-            model.addAttribute("pr", 0);
-        }
-        else if(!Objects.equals(user.getRole(), Collections.singleton(UserRole.ADMIN))){
-            model.addAttribute("pr", 1);
-        }
-        else {
-            model.addAttribute("pr", 2);
-        }
-        Iterable<Book> books = booksRepository.findAll();
-        model.addAttribute("books", books);
-        return "index";
-    }
+    // @GetMapping("/books")
+    // public String books(@AuthenticationPrincipal User user, Model model){
+    //     model.addAttribute("namePage", "Книги");
+    //     if(user == null){
+    //         model.addAttribute("pr", null);
+    //     }
+    //     else if( Objects.equals(user.getRole(), Collections.singleton(UserRole.USER))){
+    //         model.addAttribute("pr", 0);
+    //     }
+    //     else if(!Objects.equals(user.getRole(), Collections.singleton(UserRole.ADMIN))){
+    //         model.addAttribute("pr", 1);
+    //     }
+    //     else {
+    //         model.addAttribute("pr", 2);
+    //     }
+    //     Iterable<Book> books = booksRepository.findAll();
+    //     model.addAttribute("books", books);
+    //     return "index";
+    // }
     @GetMapping("/books/query")
     public String books(@AuthenticationPrincipal User user,@RequestParam String filter, Model model){
         Iterable<Book> books = booksRepository.findByTitle(filter);
