@@ -15,7 +15,7 @@ import java.sql.Date;
 @Data
 public class Comment{
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;///< Идентификатор комментария
 
     @ManyToOne(fetch = FetchType.LAZY)

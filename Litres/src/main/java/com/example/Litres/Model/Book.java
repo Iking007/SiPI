@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Data
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;///< Идентификатор книги 
     private String download_link;///< Путь к файлу/ссылка для скачивания книги с веб-сайта
     private String image;///< Путь к файлу обложки книги

@@ -20,7 +20,7 @@ import java.util.Set;
 @Table(name = "user_data")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private boolean account_activity;
     private String password;

@@ -16,7 +16,7 @@ import lombok.Data;
 @Table(name = "book_genre")
 public class Genre {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String kind_of_literature;
     private String name;

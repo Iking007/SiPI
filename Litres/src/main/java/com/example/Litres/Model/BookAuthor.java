@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Data
 public class BookAuthor {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;///< Идентификатор автора
     private String surname;///< Фамилия автора
     private String name;///< Имя автора
